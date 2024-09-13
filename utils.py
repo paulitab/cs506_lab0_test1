@@ -44,7 +44,7 @@ def nearest_neighbor(target_vector, vectors):
     best_index = -1
     highest_similarity = -1
 
-    for index, vector in enumerate(vectors):
+    for index, vector in vectors:
         similarity = cosine_similarity(target_vector, vector)
         
         if similarity > highest_similarity:
