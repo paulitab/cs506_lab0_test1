@@ -9,6 +9,7 @@ def dot_product(v1, v2):
     # Hint: use `np.dot`.
     '''
     ### YOUR CODE HERE
+    return np.dot(v1, v2)
     
 def cosine_similarity(v1, v2):
     '''
@@ -27,6 +28,7 @@ def cosine_similarity(v1, v2):
     # Hint: Use `dot_product` and `np.linalg.norm`.
     '''
     ### YOUR CODE HERE
+    return dot_product(vector1, vector2) / (np.linalg.norm(vector1) * np.linalg.norm(vector2))
     
 def nearest_neighbor(target_vector, vectors):
     '''
@@ -39,3 +41,15 @@ def nearest_neighbor(target_vector, vectors):
     # Hint: For this lab, you can just use a for loop to iterate through vectors.
     '''
     ### YOUR CODE HERE
+    best_index = -1
+    highest_similarity = -1
+
+    for index, vector in enumerate(vectors):
+        similarity = cosine_similarity(target_vector, vector)
+        
+        if similarity > highest_similarity:
+            highest_similarity = similarity
+            best_index = index
+
+    # Return the index of the nearest neighbor
+    return best_index
